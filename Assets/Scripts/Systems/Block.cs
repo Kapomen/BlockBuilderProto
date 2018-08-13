@@ -56,7 +56,12 @@ public class Block : DraggableObject {
                     this.transform.position = new Vector3(hit.point.x, hit.point.y, this.transform.position.z);
                     this.GetComponent<Rigidbody>().useGravity = true;
                     this.GetComponent<Rigidbody>().isKinematic = false;
-                    isPlaced = true;   //possibly change tag to not be 'draggable' instead?
+
+                    //this.transform.position = new Vector2(hit.point.x, hit.point.y);
+                    //this.GetComponent<Rigidbody2D>().bodyType;   //set bodytype to dyamic to apply forces
+
+                    //isPlaced = true;   //possibly change tag to not be 'draggable' instead?
+                    GameManager.Instance.NextTurn();
                 }
                 else
                     this.transform.position = initial;
