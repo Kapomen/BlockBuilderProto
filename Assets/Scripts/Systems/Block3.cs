@@ -2,7 +2,7 @@
 //using System.Collections.Generic;
 using UnityEngine;
 
-public class Block : DraggableObject {
+public class Block3 : DraggableObject {
 
     Ray ray;
     RaycastHit hit;
@@ -69,17 +69,14 @@ public class Block : DraggableObject {
                     //this.GetComponent<Rigidbody>().useGravity = true;
                     this.GetComponent<Rigidbody>().isKinematic = false;
 
-                    //this.transform.position = new Vector2(hit.point.x, hit.point.y);
-                    //this.GetComponent<Rigidbody2D>().bodyType;   //set bodytype to dyamic to apply forces
-
                     //Makes Blocks placed in the PlayArea non-draggable
                     isPlaced = true;   //possibly change tag to not be 'draggable' instead?
 
                     //Changes to the next Players turn after Block is placed.
                     //GameManager.Instance.NextTurn();
 
-                    BlockGenerator.Instance.ReplaceBlock(initial, isPlayerOneBlock);
 
+                    BlockGenerator3.Instance.ReplaceBlock(initial, isPlayerOneBlock);
 
                 }
                 else

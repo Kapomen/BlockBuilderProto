@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BlockGenerator2 : MonoSingleton<BlockGenerator2> {
+public class BlockGenerator4 : MonoSingleton<BlockGenerator4> {
 
     public GameObject newBlock;
 
