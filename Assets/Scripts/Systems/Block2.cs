@@ -2,7 +2,7 @@
 //using System.Collections.Generic;
 using UnityEngine;
 
-public class Block : DraggableObject {
+public class Block2 : DraggableObject {
 
     Ray ray;
     RaycastHit hit;
@@ -64,8 +64,6 @@ public class Block : DraggableObject {
                 if (hit.transform.tag == "PlayArea")
                 {
                     this.transform.position = new Vector3(hit.point.x, hit.point.y, this.transform.position.z);
-
-                    //Uncomment Line 69 to apply gravity to block on EndDrag()
                     //this.GetComponent<Rigidbody>().useGravity = true;
                     this.GetComponent<Rigidbody>().isKinematic = false;
 
@@ -78,8 +76,8 @@ public class Block : DraggableObject {
                     //Changes to the next Players turn after Block is placed.
                     //GameManager.Instance.NextTurn();
 
-                    BlockGenerator.Instance.ReplaceBlock(initial, isPlayerOneBlock);
 
+                    BlockGenerator2.Instance.ReplaceBlock(initial, isPlayerOneBlock);
 
                 }
                 else
