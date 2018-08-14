@@ -2,7 +2,7 @@
 //using System.Collections.Generic;
 using UnityEngine;
 
-public class Block : DraggableObject {
+public class Block2 : DraggableObject {
 
     Ray ray;
     RaycastHit hit;
@@ -76,8 +76,8 @@ public class Block : DraggableObject {
                     //Changes to the next Players turn after Block is placed.
                     //GameManager.Instance.NextTurn();
 
-                    BlockGenerator.Instance.ReplaceBlock(initial, isPlayerOneBlock);
 
+                    BlockGenerator2.Instance.ReplaceBlock(initial, isPlayerOneBlock);
 
                 }
                 else
