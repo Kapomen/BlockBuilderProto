@@ -7,6 +7,9 @@ public class Block : DraggableObject {
     Ray ray;
     RaycastHit hit;
     Vector3 initial;
+
+    //NOTE: 2 Player currently disabled! BlockGenerator needs to be able to set IsPlayerOneBlock of newBlock
+
     //AudioSource audioSource;
     [SerializeField] bool isPlayerOneBlock = true;
 
@@ -25,27 +28,34 @@ public class Block : DraggableObject {
     public override void BeginDrag(Vector3 pointerPosition) {
         if (!isPlaced) {
             //for single player remove this IF (not it's content)
-            if ((isPlayerOneBlock && GameManager.Instance.isPlayerOne)|| (!isPlayerOneBlock && !GameManager.Instance.isPlayerOne)) {
+            //if ((isPlayerOneBlock && GameManager.Instance.isPlayerOne)|| (!isPlayerOneBlock && !GameManager.Instance.isPlayerOne)) {
+            //    base.BeginDrag(pointerPosition);
+            //    initial = this.transform.position;
+            //}
+
                 base.BeginDrag(pointerPosition);
                 initial = this.transform.position;
-            }
+            
         } 
     } //end BeginDrag
 
     public override void OnDrag(Vector3 pointerPosition) {
         if (!isPlaced) {
             //for a single player remove this if (not it's content though)
-            if ((isPlayerOneBlock && GameManager.Instance.isPlayerOne) || (!isPlayerOneBlock && !GameManager.Instance.isPlayerOne))
-            {
+            //if ((isPlayerOneBlock && GameManager.Instance.isPlayerOne) || (!isPlayerOneBlock && !GameManager.Instance.isPlayerOne))
+            //{
+            //    base.OnDrag(pointerPosition);
+            //}
+
                 base.OnDrag(pointerPosition);
-            }
+            
         }    
     } //end OnDrag
 
     public override void EndDrag()
     {
         //checks if the ray hits something at 1 distance. Used to define context of space behind dragged block.
-        if ((isPlayerOneBlock && GameManager.Instance.isPlayerOne) || (!isPlayerOneBlock && !GameManager.Instance.isPlayerOne)) {
+        //if ((isPlayerOneBlock && GameManager.Instance.isPlayerOne) || (!isPlayerOneBlock && !GameManager.Instance.isPlayerOne)) {
             base.EndDrag();
 
             if (Physics.Raycast(ray, out hit, 1))
@@ -64,7 +74,9 @@ public class Block : DraggableObject {
                     isPlaced = true;   //possibly change tag to not be 'draggable' instead?
 
                     //Changes to the next Players turn after Block is placed.
-                    GameManager.Instance.NextTurn();
+                    //GameManager.Instance.NextTurn();
+
+                    BlockGenerator.Instance.ReplaceBlock(initial, isPlayerOneBlock);
 
                     //
                     // ERIC- Call BlockGenerator here. 
@@ -79,7 +91,7 @@ public class Block : DraggableObject {
             }
             else
                 this.transform.position = initial;
-        }
+        //}
     } //end EndDrag
 
     //public override void TapObject()
