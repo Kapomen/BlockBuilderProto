@@ -60,8 +60,19 @@ public class Block : DraggableObject {
                     //this.transform.position = new Vector2(hit.point.x, hit.point.y);
                     //this.GetComponent<Rigidbody2D>().bodyType;   //set bodytype to dyamic to apply forces
 
-                    //isPlaced = true;   //possibly change tag to not be 'draggable' instead?
+                    //Makes Blocks placed in the PlayArea non-draggable
+                    isPlaced = true;   //possibly change tag to not be 'draggable' instead?
+
+                    //Changes to the next Players turn after Block is placed.
                     GameManager.Instance.NextTurn();
+
+                    //
+                    // ERIC- Call BlockGenerator here. 
+                    //Reference the value of isPlayerOneBlock if needed to identify P1 or P2.
+                    //Reference this.transform.position = initial; to use the initial position of the block 
+                    //that calls the generator to instantialize the new block in its position.
+                    //
+
                 }
                 else
                     this.transform.position = initial;
