@@ -66,7 +66,7 @@ public class Block3 : DraggableObject {
                     this.transform.position = new Vector3(hit.point.x, hit.point.y, this.transform.position.z);
 
                     //Uncomment Line 69 to apply gravity to block on EndDrag()
-                    //this.GetComponent<Rigidbody>().useGravity = true;
+                    this.GetComponent<Rigidbody>().useGravity = true;
                     this.GetComponent<Rigidbody>().isKinematic = false;
 
                     //Makes Blocks placed in the PlayArea non-draggable

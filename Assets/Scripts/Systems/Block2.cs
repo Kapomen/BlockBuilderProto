@@ -64,7 +64,7 @@ public class Block2 : DraggableObject {
                 if (hit.transform.tag == "PlayArea")
                 {
                     this.transform.position = new Vector3(hit.point.x, hit.point.y, this.transform.position.z);
-                    //this.GetComponent<Rigidbody>().useGravity = true;
+                    this.GetComponent<Rigidbody>().useGravity = true;
                     this.GetComponent<Rigidbody>().isKinematic = false;
 
                     //this.transform.position = new Vector2(hit.point.x, hit.point.y);

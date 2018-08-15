@@ -66,7 +66,7 @@ public class Block : DraggableObject {
                     this.transform.position = new Vector3(hit.point.x, hit.point.y, this.transform.position.z);
 
                     //Uncomment Line 69 to apply gravity to block on EndDrag()
-                    //this.GetComponent<Rigidbody>().useGravity = true;
+                    this.GetComponent<Rigidbody>().useGravity = true;
                     this.GetComponent<Rigidbody>().isKinematic = false;
 
                     //this.transform.position = new Vector2(hit.point.x, hit.point.y);
