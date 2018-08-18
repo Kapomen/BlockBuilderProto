@@ -65,15 +65,16 @@ public class Block : DraggableObject {
                 {
                     this.transform.position = new Vector3(hit.point.x, hit.point.y, this.transform.position.z);
 
-                    //Uncomment Line 69 to apply gravity to block on EndDrag()
-                    this.GetComponent<Rigidbody>().useGravity = true;
-                    this.GetComponent<Rigidbody>().isKinematic = false;
+                //Uncomment Line 70 to apply gravity to block on EndDrag()
+                this.GetComponent<Rigidbody>().isKinematic = false;
+                this.GetComponent<Rigidbody>().useGravity = true;
+                //this.GetComponentInChildren<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
 
-                    //this.transform.position = new Vector2(hit.point.x, hit.point.y);
-                    //this.GetComponent<Rigidbody2D>().bodyType;   //set bodytype to dyamic to apply forces
+                //this.transform.position = new Vector2(hit.point.x, hit.point.y);
+                //this.GetComponent<Rigidbody2D>().bodyType;   //set bodytype to dyamic to apply forces
 
-                    //Makes Blocks placed in the PlayArea non-draggable
-                    isPlaced = true;   //possibly change tag to not be 'draggable' instead?
+                //Makes Blocks placed in the PlayArea non-draggable
+                isPlaced = true;   //possibly change tag to not be 'draggable' instead?
 
                     //Changes to the next Players turn after Block is placed.
                     //GameManager.Instance.NextTurn();
