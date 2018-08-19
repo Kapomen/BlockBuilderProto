@@ -8,6 +8,8 @@ public class Block : DraggableObject {
     RaycastHit hit;
     Vector3 initial;
 
+    private int AssignedBlockIndexPos;
+
     //NOTE: 2 Player currently disabled! BlockGenerator needs to be able to set IsPlayerOneBlock of newBlock
 
     //AudioSource audioSource;
@@ -73,14 +75,13 @@ public class Block : DraggableObject {
                 //this.GetComponent<Rigidbody2D>().bodyType;   //set bodytype to dyamic to apply forces
 
                 //Makes Blocks placed in the PlayArea non-draggable
-                isPlaced = true;   //possibly change tag to not be 'draggable' instead?
+                isPlaced = true;
 
                 //Collect Block GameObject to list BlocksInPlayIndex.
-                //Increment variable to track and display BlocksInPlay.
+                GameManager.Instance.SetBlockIntoPlay(this.gameObject);
 
-                GameManager.Instance.UpdatePlayArea(this.gameObject);
-
-                //Accessible from GameManager to call ClearBoard function. Trigger call from a HUD Button (2-stage) and TimerEvent.
+                //Store the index for the block within itself for reference
+                AssignedBlockIndexPos = GameManager.Instance.CurrentBlockIndexPos;
 
                 //Changes to the next Players turn after Block is placed.
                 //GameManager.Instance.NextTurn();
@@ -88,6 +89,7 @@ public class Block : DraggableObject {
                 BlockGenerator.Instance.ReplaceBlock(initial, isPlayerOneBlock);
 
 
+                print("Assigned Block Index: " + AssignedBlockIndexPos);
                 }
                 else
                     this.transform.position = initial;

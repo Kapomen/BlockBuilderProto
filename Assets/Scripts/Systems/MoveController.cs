@@ -30,6 +30,7 @@ public class MoveController : MonoBehaviour {
         ray = Camera.main.ScreenPointToRay(Gesture.Instance.TouchPosition());
 
         GameObject scenepause = GameObject.Find("SceneManager");
+
         gamepausechecking ifpaused = scenepause.GetComponent<gamepausechecking>();
 
         if (Physics.Raycast(ray, out hit, Mathf.Infinity))

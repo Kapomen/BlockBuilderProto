@@ -39,13 +39,15 @@ public class GameManager : MonoSingleton<GameManager>
     public int CurrentTurn { get; set; }
 
     private List<GameObject> BlocksInPlayIndex = new List<GameObject>();
+    public int CurrentBlockIndexPos;
+    public int BlocksInPlay;
 
     public GameStates GameState { get; private set; }
 
     private void Start()
     {
         IsPlayerOne = true;
-        print(BlocksInPlayIndex.Count);
+        print("StartBlocksInPlay: " + BlocksInPlayIndex.Count);
     } //end Start
 
     /// <summary>
@@ -66,10 +68,16 @@ public class GameManager : MonoSingleton<GameManager>
         IsPlayerOne = !IsPlayerOne;
     } //end NextTurn
 
-    public void UpdatePlayArea(GameObject block)
+    public void SetBlockIntoPlay(GameObject block)
     {
+        CurrentBlockIndexPos = BlocksInPlayIndex.Count;
+    
         BlocksInPlayIndex.Add(block);
 
-        print(BlocksInPlayIndex.Count);
+        BlocksInPlay = BlocksInPlayIndex.Count;
+
+        //print(BlocksInPlayIndex.Count);
+        //print("Placed BlockIndex: " + CurrentBlockIndex);
+        print("Blocks In Play: " + BlocksInPlay);
     } //end UpdatePlayArea
 } //end GameManager class
