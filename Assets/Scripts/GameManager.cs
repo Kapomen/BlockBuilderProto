@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 #if UNITY_EDITOR
@@ -34,14 +35,17 @@ public class GameManager : MonoSingleton<GameManager>
 
     public event OnStateChangeHandler OnStateChange;
 
-    public bool isPlayerOne { get; set; }
-    public int currentTurn { get; set; }
+    public bool IsPlayerOne { get; set; }
+    public int CurrentTurn { get; set; }
+
+    private List<GameObject> BlocksInPlayIndex = new List<GameObject>();
 
     public GameStates GameState { get; private set; }
 
     private void Start()
     {
-        isPlayerOne = true;
+        IsPlayerOne = true;
+        print(BlocksInPlayIndex.Count);
     } //end Start
 
     /// <summary>
@@ -59,6 +63,13 @@ public class GameManager : MonoSingleton<GameManager>
     public void NextTurn()
     {
         //This is to end the turn if 2 player game 
-        isPlayerOne = !isPlayerOne;
+        IsPlayerOne = !IsPlayerOne;
     } //end NextTurn
+
+    public void UpdatePlayArea(GameObject block)
+    {
+        BlocksInPlayIndex.Add(block);
+
+        print(BlocksInPlayIndex.Count);
+    } //end UpdatePlayArea
 } //end GameManager class

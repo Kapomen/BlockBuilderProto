@@ -11,7 +11,7 @@ public class Block : DraggableObject {
     //NOTE: 2 Player currently disabled! BlockGenerator needs to be able to set IsPlayerOneBlock of newBlock
 
     //AudioSource audioSource;
-    [SerializeField] bool isPlayerOneBlock = true;
+    [SerializeField] bool isPlayerOneBlock = true; //passed from spawn point
 
     private void Awake() {
         isPlaced = false;
@@ -65,21 +65,27 @@ public class Block : DraggableObject {
                 {
                     this.transform.position = new Vector3(hit.point.x, hit.point.y, this.transform.position.z);
 
-                //Uncomment Line 70 to apply gravity to block on EndDrag()
                 this.GetComponent<Rigidbody>().isKinematic = false;
                 this.GetComponent<Rigidbody>().useGravity = true;
-                //this.GetComponentInChildren<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
 
+                //this.GetComponentInChildren<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
                 //this.transform.position = new Vector2(hit.point.x, hit.point.y);
                 //this.GetComponent<Rigidbody2D>().bodyType;   //set bodytype to dyamic to apply forces
 
                 //Makes Blocks placed in the PlayArea non-draggable
                 isPlaced = true;   //possibly change tag to not be 'draggable' instead?
 
-                    //Changes to the next Players turn after Block is placed.
-                    //GameManager.Instance.NextTurn();
+                //Collect Block GameObject to list BlocksInPlayIndex.
+                //Increment variable to track and display BlocksInPlay.
 
-                    BlockGenerator.Instance.ReplaceBlock(initial, isPlayerOneBlock);
+                GameManager.Instance.UpdatePlayArea(this.gameObject);
+
+                //Accessible from GameManager to call ClearBoard function. Trigger call from a HUD Button (2-stage) and TimerEvent.
+
+                //Changes to the next Players turn after Block is placed.
+                //GameManager.Instance.NextTurn();
+
+                BlockGenerator.Instance.ReplaceBlock(initial, isPlayerOneBlock);
 
 
                 }
