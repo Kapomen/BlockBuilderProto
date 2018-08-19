@@ -31,11 +31,15 @@ public class MoveController : MonoBehaviour {
 
         if (Physics.Raycast(ray, out hit, Mathf.Infinity))
         {
-            if (hit.transform.tag == "Draggable")
+            //Added IF to check for pause state
+            if (paused = false)
             {
-                draggable = hit.transform.GetComponent<DraggableObject>();
-                
-                draggable.BeginDrag(Gesture.Instance.TouchPosition());
+                if (hit.transform.tag == "Draggable")
+                {
+                    draggable = hit.transform.GetComponent<DraggableObject>();
+
+                    draggable.BeginDrag(Gesture.Instance.TouchPosition());
+                }
             }
          }
     } //end StartTouch
