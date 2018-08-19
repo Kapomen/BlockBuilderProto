@@ -29,10 +29,13 @@ public class MoveController : MonoBehaviour {
     public void StartTouch() {
         ray = Camera.main.ScreenPointToRay(Gesture.Instance.TouchPosition());
 
+        GameObject scenepause = GameObject.Find("SceneManager");
+        gamepausechecking ifpaused = scenepause.GetComponent<gamepausechecking>();
+
         if (Physics.Raycast(ray, out hit, Mathf.Infinity))
         {
             //Added IF to check for pause state
-            if (paused = false)
+            if (ifpaused.paused == false)
             {
                 if (hit.transform.tag == "Draggable")
                 {
