@@ -154,7 +154,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1291472543199146, guid: fe49c07171af03d4e8064616a2292615, type: 2}
       propertyPath: m_Name
-      value: Game Manager (1)
+      value: Game Manager
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe49c07171af03d4e8064616a2292615, type: 2}
@@ -648,7 +648,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1858360499479110, guid: bdc8145520a69f6498a9bdc4178b2277, type: 2}
       propertyPath: m_Name
-      value: Block3 - V.Rect (1)
+      value: Block3 - V.Rect
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bdc8145520a69f6498a9bdc4178b2277, type: 2}
@@ -663,7 +663,7 @@ GameObject:
   - component: {fileID: 266309483}
   - component: {fileID: 266309482}
   m_Layer: 0
-  m_Name: BlockGenerator (1)
+  m_Name: BlockGenerator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -815,7 +815,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1400094030948640, guid: dc8915f5012e39a459199260f30f3b8b, type: 2}
       propertyPath: m_Name
-      value: MoveController (1)
+      value: MoveController
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc8915f5012e39a459199260f30f3b8b, type: 2}
@@ -861,7 +861,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1853456370714610, guid: 9a35e075d2c68464797d6cfee13ecb34, type: 2}
       propertyPath: m_Name
-      value: Block2 - H.Rect (1)
+      value: Block2 - H.Rect
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a35e075d2c68464797d6cfee13ecb34, type: 2}
@@ -1130,7 +1130,7 @@ GameObject:
   m_Component:
   - component: {fileID: 665192767}
   m_Layer: 0
-  m_Name: Board (1)
+  m_Name: Board
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2262,6 +2262,7 @@ GameObject:
   - component: {fileID: 1415760629}
   - component: {fileID: 1415760631}
   - component: {fileID: 1415760630}
+  - component: {fileID: 1415760632}
   m_Layer: 5
   m_Name: Score
   m_TagString: Untagged
@@ -2327,6 +2328,18 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1415760628}
   m_CullTransparentMesh: 0
+--- !u!114 &1415760632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1415760628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87c7515c062b7b648941c33809589a18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreTextMesh: {fileID: 1415760630}
 --- !u!1 &1466209132
 GameObject:
   m_ObjectHideFlags: 0
@@ -2746,7 +2759,7 @@ GameObject:
   - component: {fileID: 1617181088}
   - component: {fileID: 1617181087}
   m_Layer: 0
-  m_Name: Audio Source (1)
+  m_Name: Audio Source
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3575,7 +3588,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2067755893}
   m_Layer: 0
-  m_Name: 2Dphysics Testing (1)
+  m_Name: 2Dphysics Testing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3714,7 +3727,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1821716182020012, guid: c90dbcdb70fc776409b6e5259067524a, type: 2}
       propertyPath: m_Name
-      value: Block1 - Square (1)
+      value: Block1 - Square
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c90dbcdb70fc776409b6e5259067524a, type: 2}
