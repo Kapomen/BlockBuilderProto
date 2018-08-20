@@ -71,9 +71,7 @@ public class GameManager : MonoSingleton<GameManager>
     public void SetBlockIntoPlay(GameObject block)
     {
         CurrentBlockIndexPos = BlocksInPlayIndex.Count;
-    
         BlocksInPlayIndex.Add(block);
-
         BlocksInPlay = BlocksInPlayIndex.Count;
 
         //print(BlocksInPlayIndex.Count);

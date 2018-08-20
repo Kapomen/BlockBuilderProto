@@ -87,6 +87,7 @@ public class Block : DraggableObject {
                 //GameManager.Instance.NextTurn();
 
                 BlockGenerator.Instance.ReplaceBlock(initial, isPlayerOneBlock);
+                //BlockGenerator.Instance.ReplaceBlock(initial);
 
 
                 print("Assigned Block Index: " + AssignedBlockIndexPos);

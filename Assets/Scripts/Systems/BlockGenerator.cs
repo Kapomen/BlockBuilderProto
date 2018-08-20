@@ -15,12 +15,15 @@ public class BlockGenerator : MonoSingleton<BlockGenerator> {
     public Color color1 = new Color(0, 0, 1, 1);
     public Color color2 = new Color(0, 1, 0, 1);
     public Color color3 = new Color(1, 0, 0, 1);
+
     //public Color color4 = new Color(0, 0, 0, 1);
     //public Color color5 = new Color(0, 0, 0, 1);
     //public Color color6 = new Color(0, 0, 0, 1);
 
+    //[SerializeField] public bool BlockGeneratorReady = false;
+
     // Use this for initialization
-    void Start () {
+    protected override void Awake () {
         //Load Generator
         blockTypes.Add(block1);
         blockTypes.Add(block2);
@@ -33,6 +36,8 @@ public class BlockGenerator : MonoSingleton<BlockGenerator> {
         //blockColors.Add(color4);
         //blockColors.Add(color5);
         //blockColors.Add(color6);
+
+        //BlockGeneratorReady = true;
 
         //Setting up probability: 
         ////Use a public or random set int to change the number of times a block type or color is added to their lists.
@@ -49,20 +54,18 @@ public class BlockGenerator : MonoSingleton<BlockGenerator> {
 
         BlockSprite = newGameObject.GetComponent<SpriteRenderer>();
 
-        //BlockSprite.color = Color.blue;
-
         int blockColorIndex = Random.Range(0, blockColors.Count);
         BlockSprite.color = blockColors[blockColorIndex];
 
         newGameObject.transform.position = initialPosition;
 
         //Assign Block to Players
-        if (!isPlayerOneBlock)
-        {
-            //newGameObject.
-            //isPlayerOneBlock = false;
-            print("Player 2");
-        }
+        //if (!isPlayerOneBlock)
+        //{
+        //    //newGameObject.
+        //    //isPlayerOneBlock = false;
+        //    print("Player 2");
+        //}
 
     } //end ReplaceBlock
 
