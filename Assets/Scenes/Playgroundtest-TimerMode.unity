@@ -2797,6 +2797,41 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 224584198998477376, guid: 83b2bec89ef48594eaa271d3050890ba,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224584198998477376, guid: 83b2bec89ef48594eaa271d3050890ba,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224584198998477376, guid: 83b2bec89ef48594eaa271d3050890ba,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 160
+      objectReference: {fileID: 0}
+    - target: {fileID: 224584198998477376, guid: 83b2bec89ef48594eaa271d3050890ba,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 114308736326582130, guid: 83b2bec89ef48594eaa271d3050890ba,
+        type: 2}
+      propertyPath: m_FontData.m_Alignment
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114308736326582130, guid: 83b2bec89ef48594eaa271d3050890ba,
+        type: 2}
+      propertyPath: m_FontData.m_VerticalOverflow
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114308736326582130, guid: 83b2bec89ef48594eaa271d3050890ba,
+        type: 2}
+      propertyPath: m_FontData.m_HorizontalOverflow
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83b2bec89ef48594eaa271d3050890ba, type: 2}
   m_IsPrefabAsset: 0

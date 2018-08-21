@@ -2327,6 +2327,25 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: changeToScene
       objectReference: {fileID: 0}
+    - target: {fileID: 1947536227688326, guid: 83b2bec89ef48594eaa271d3050890ba, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114308736326582130, guid: 83b2bec89ef48594eaa271d3050890ba,
+        type: 2}
+      propertyPath: m_FontData.m_Alignment
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114308736326582130, guid: 83b2bec89ef48594eaa271d3050890ba,
+        type: 2}
+      propertyPath: m_FontData.m_HorizontalOverflow
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114308736326582130, guid: 83b2bec89ef48594eaa271d3050890ba,
+        type: 2}
+      propertyPath: m_FontData.m_VerticalOverflow
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83b2bec89ef48594eaa271d3050890ba, type: 2}
   m_IsPrefabAsset: 0
@@ -2360,6 +2379,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paused: 0
+  pausebutton: {fileID: 0}
+  resetbutton: {fileID: 0}
 --- !u!114 &1767554397
 MonoBehaviour:
   m_ObjectHideFlags: 0
