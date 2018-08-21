@@ -5,12 +5,12 @@ using UnityEngine.UI;
 
 public class ScoreCounting : MonoBehaviour {
     public Text scoreTextMesh;
-    private int Score;
+    private int score;
 
     // Use this for initialization
     void Start()
     {
-        Score = 0;
+        score = 0;
     }
 
     // Update is called once per frame
@@ -18,11 +18,8 @@ public class ScoreCounting : MonoBehaviour {
     {
         GameObject checkblock = GameObject.Find("Game Manager");
         GameManager currentblocks = checkblock.GetComponent<GameManager>();
-        updateScore(currentblocks.BlocksInPlay);
+        scoreTextMesh.text = "Blocks: " + score;
+        score = currentblocks.BlocksInPlay;
     }
 
-    public void updateScore(int value)
-    {
-        
-    }
 }

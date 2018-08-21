@@ -11,7 +11,7 @@ public class TimerCounting : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        startTime = Time.time;
+        
 	}
 	
 	// Update is called once per frame
@@ -21,12 +21,10 @@ public class TimerCounting : MonoBehaviour {
 
     void UpdateTimer()
     {
-        float t = Time.time - startTime;
+        float t = startTime - Time.time;
         string minutes = Mathf.Floor(t / 60).ToString("00");
         string seconds = Mathf.Floor(t % 60).ToString("00");
         
         timerText.text = minutes + ":" + seconds;
-
-
     }
 }
