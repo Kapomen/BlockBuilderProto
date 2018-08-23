@@ -21,8 +21,6 @@ GameObject:
   - component: {fileID: 4795846477284824}
   - component: {fileID: 212334550928949300}
   - component: {fileID: 50414359070321940}
-  - component: {fileID: 60421859865568842}
-  - component: {fileID: 66382520628375078}
   m_Layer: 0
   m_Name: Overlay2D
   m_TagString: Untagged
@@ -57,7 +55,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1858360499479110}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -4.86, y: 2.34, z: -1}
+  m_LocalPosition: {x: -5.5, y: 4.31, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4795846477284824}
@@ -112,33 +110,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 56
   m_CollisionDetection: 0
---- !u!60 &60421859865568842
-PolygonCollider2D:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1831083206091964}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 1
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.33, y: 0.65}
-    newSize: {x: 0.33, y: 0.65}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.5, y: -0.5}
-      - {x: 0, y: 0.46875}
-      - {x: 0.5, y: -0.5}
 --- !u!65 &65429679531459530
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -151,37 +122,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!66 &66382520628375078
-CompositeCollider2D:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1831083206091964}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_GeometryType: 0
-  m_GenerationType: 0
-  m_EdgeRadius: 0
-  m_ColliderPaths:
-  - m_Collider: {fileID: 60421859865568842}
-    m_ColliderPaths:
-    - - X: -5000002
-        Y: -5000002
-      - X: 0
-        Y: 4687502
-      - X: 5000002
-        Y: -5000002
-  m_CompositePaths:
-    m_Paths:
-    - - {x: 0, y: 0.4687502}
-      - {x: -0.5000002, y: -0.5000002}
-      - {x: 0.5000002, y: -0.5000002}
-  m_VertexDistance: 0.0005
 --- !u!82 &82039998023213566
 AudioSource:
   m_ObjectHideFlags: 1

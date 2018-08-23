@@ -60,6 +60,8 @@ public class Block : DraggableObject {
         //if ((isPlayerOneBlock && GameManager.Instance.isPlayerOne) || (!isPlayerOneBlock && !GameManager.Instance.isPlayerOne)) {
             base.EndDrag();
 
+        if (!isPlaced)
+        {
             if (Physics.Raycast(ray, out hit, 1))
             {
                 //checks hit object's tag
@@ -67,36 +69,37 @@ public class Block : DraggableObject {
                 {
                     this.transform.position = new Vector3(hit.point.x, hit.point.y, this.transform.position.z);
 
-                this.GetComponent<Rigidbody>().isKinematic = false;
-                this.GetComponent<Rigidbody>().useGravity = true;
+                    this.GetComponent<Rigidbody>().isKinematic = false;
+                    this.GetComponent<Rigidbody>().useGravity = true;
 
-                //this.GetComponentInChildren<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-                //this.transform.position = new Vector2(hit.point.x, hit.point.y);
-                //this.GetComponent<Rigidbody2D>().bodyType;   //set bodytype to dyamic to apply forces
+                    //this.GetComponentInChildren<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+                    //this.transform.position = new Vector2(hit.point.x, hit.point.y);
+                    //this.GetComponent<Rigidbody2D>().bodyType;   //set bodytype to dyamic to apply forces
 
-                //Makes Blocks placed in the PlayArea non-draggable
-                isPlaced = true;
+                    //Makes Blocks placed in the PlayArea non-draggable
+                    isPlaced = true;
 
-                //Collect Block GameObject to list BlocksInPlayIndex.
-                GameManager.Instance.SetBlockIntoPlay(this.gameObject);
+                    //Collect Block GameObject to list BlocksInPlayIndex.
+                    GameManager.Instance.SetBlockIntoPlay(this.gameObject);
 
-                //Store the index for the block within itself for reference
-                AssignedBlockIndexPos = GameManager.Instance.CurrentBlockIndexPos;
+                    //Store the index for the block within itself for reference
+                    AssignedBlockIndexPos = GameManager.Instance.CurrentBlockIndexPos;
 
-                //Changes to the next Players turn after Block is placed.
-                //GameManager.Instance.NextTurn();
+                    //Changes to the next Players turn after Block is placed.
+                    //GameManager.Instance.NextTurn();
 
-                BlockGenerator.Instance.ReplaceBlock(initial, isPlayerOneBlock);
-                //BlockGenerator.Instance.ReplaceBlock(initial);
+                    BlockGenerator.Instance.ReplaceBlock(initial, isPlayerOneBlock);
+                    //BlockGenerator.Instance.ReplaceBlock(initial);
 
 
-                print("Assigned Block Index: " + AssignedBlockIndexPos);
+                    print("Assigned Block Index: " + AssignedBlockIndexPos);
                 }
                 else
                     this.transform.position = initial;
             }
             else
                 this.transform.position = initial;
+        } //end if (!IsPlaced)
         //}
     } //end EndDrag
 
