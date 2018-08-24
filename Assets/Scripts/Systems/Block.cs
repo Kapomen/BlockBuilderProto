@@ -16,7 +16,8 @@ public class Block : DraggableObject {
     [SerializeField] bool isPlayerOneBlock = true; //passed from spawn point
 
     private void Awake() {
-        isPlaced = false;
+        IsPlaced = false;
+        IsDragging = false;
         //audioSource = this.GetComponent<AudioSource>();
     } //end Awake
     //private void Start(){}
@@ -28,21 +29,22 @@ public class Block : DraggableObject {
     } //end Update
 
     public override void BeginDrag(Vector3 pointerPosition) {
-        if (!isPlaced) {
+        if (!IsPlaced) {
             //for single player remove this IF (not it's content)
             //if ((isPlayerOneBlock && GameManager.Instance.isPlayerOne)|| (!isPlayerOneBlock && !GameManager.Instance.isPlayerOne)) {
             //    base.BeginDrag(pointerPosition);
             //    initial = this.transform.position;
             //}
 
-                base.BeginDrag(pointerPosition);
-                initial = this.transform.position;
+            IsDragging = true;
+            base.BeginDrag(pointerPosition);
+            initial = this.transform.position;
             
         } 
     } //end BeginDrag
 
     public override void OnDrag(Vector3 pointerPosition) {
-        if (!isPlaced) {
+        if (!IsPlaced) {
             //for a single player remove this if (not it's content though)
             //if ((isPlayerOneBlock && GameManager.Instance.isPlayerOne) || (!isPlayerOneBlock && !GameManager.Instance.isPlayerOne))
             //{
@@ -58,10 +60,12 @@ public class Block : DraggableObject {
     {
         //checks if the ray hits something at 1 distance. Used to define context of space behind dragged block.
         //if ((isPlayerOneBlock && GameManager.Instance.isPlayerOne) || (!isPlayerOneBlock && !GameManager.Instance.isPlayerOne)) {
-            base.EndDrag();
 
-        if (!isPlaced)
+        base.EndDrag();
+
+        if (!IsPlaced)
         {
+            IsDragging = false;
             if (Physics.Raycast(ray, out hit, 1))
             {
                 //checks hit object's tag
@@ -77,7 +81,7 @@ public class Block : DraggableObject {
                     //this.GetComponent<Rigidbody2D>().bodyType;   //set bodytype to dyamic to apply forces
 
                     //Makes Blocks placed in the PlayArea non-draggable
-                    isPlaced = true;
+                    IsPlaced = true;
 
                     //Collect Block GameObject to list BlocksInPlayIndex.
                     GameManager.Instance.SetBlockIntoPlay(this.gameObject);
@@ -102,6 +106,15 @@ public class Block : DraggableObject {
         } //end if (!IsPlaced)
         //}
     } //end EndDrag
+
+    //    void OnCollisionEnter (Collision col) {
+    //    if(this.IsDragging = true && col.gameObject.tag == "Draggable")
+    //    {
+    //        //check other for isPlaced. If true, ignore.
+    //        //Destroy(col.gameObject);
+    //        Physics.IgnoreCollision(this.GetComponent<Collider>(), col.gameObject.GetComponent<Collider>());
+    //    }
+    //} //end OnCollisionEnter
 
     //public override void TapObject()
     //{

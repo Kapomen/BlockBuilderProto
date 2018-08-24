@@ -8,7 +8,8 @@ public class DraggableObject : MonoBehaviour {
     protected Vector3 distance;
     float  positionX;
     float  positionY;
-    public bool isPlaced { get; set; }
+    public bool IsPlaced { get; set; }
+    public bool IsDragging { get; set; }
 
     // Update is called once per frame
     //void Update () {}
