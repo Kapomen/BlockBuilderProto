@@ -886,6 +886,10 @@ MonoBehaviour:
   color1: {r: 0, g: 0, b: 1, a: 1}
   color2: {r: 0, g: 1, b: 0, a: 1}
   color3: {r: 1, g: 0, b: 0, a: 1}
+  overlay1: {fileID: 21300000, guid: c759534a07d001a44ba136b429baab60, type: 3}
+  overlay2: {fileID: 21300000, guid: 43fd585af3828bc4db43ad7b8f7d6f2a, type: 3}
+  overlay3: {fileID: 21300000, guid: 741022b12f503a14b87395b69c9189f3, type: 3}
+  overlay4: {fileID: 21300000, guid: 6cabb3bf856d1be499db0cc0d3c5d0c6, type: 3}
 --- !u!4 &1136539463
 Transform:
   m_ObjectHideFlags: 0
@@ -1010,11 +1014,6 @@ Prefab:
     - target: {fileID: 4101378184834660, guid: c90dbcdb70fc776409b6e5259067524a, type: 2}
       propertyPath: m_RootOrder
       value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 54393710633366054, guid: c90dbcdb70fc776409b6e5259067524a,
-        type: 2}
-      propertyPath: m_Constraints
-      value: 120
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c90dbcdb70fc776409b6e5259067524a, type: 2}

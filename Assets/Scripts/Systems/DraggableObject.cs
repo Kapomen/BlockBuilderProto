@@ -21,9 +21,21 @@ public class DraggableObject : MonoBehaviour {
     } //end BeginDrag
 
     public virtual void OnDrag(Vector3 pointerPosition) {
-            Vector3 currentPosition = new Vector3(pointerPosition.x - positionX, pointerPosition.y - positionY, distance.z);
-            Vector3 worldPosition = Camera.main.ScreenToWorldPoint(currentPosition);
+        Vector3 currentPosition = new Vector3(pointerPosition.x - positionX, pointerPosition.y - positionY, distance.z);
+        Vector3 worldPosition = Camera.main.ScreenToWorldPoint(currentPosition);
+
+        //keeps blocks from being dragged off camera. 
+        //BUG: If touch held off camera then returned to screen, block will transform position
+        if (currentPosition.y >= Screen.height || currentPosition.y <= 0 || currentPosition.x >= Screen.width || currentPosition.x <= 0)
+        {
+            EndDrag();
+            //print("edge collision");
+            //return;
+        }
+        else
+        {
             this.transform.position = worldPosition;
+        }
     } //end OnDrag
 
     public virtual void EndDrag() {

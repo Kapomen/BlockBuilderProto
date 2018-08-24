@@ -20,6 +20,20 @@ public class BlockGenerator : MonoSingleton<BlockGenerator> {
     //public Color color5 = new Color(0, 0, 0, 1);
     //public Color color6 = new Color(0, 0, 0, 1);
 
+    SpriteRenderer BlockOverlay;
+    private readonly List<Sprite> blockOverlay1 = new List<Sprite>(); //squares
+    public Sprite overlay1;
+    public Sprite overlay2;
+
+    private readonly List<Sprite> blockOverlay2 = new List<Sprite>(); //rectangles
+    public Sprite overlay3;
+    public Sprite overlay4;
+
+    //private readonly List<Sprite> blockOverlay3 = new List<Sprite>();
+    //public Sprite overlay5;
+    //public Sprite overlay6;
+
+
     //[SerializeField] public bool BlockGeneratorReady = false;
 
     // Use this for initialization
@@ -36,6 +50,11 @@ public class BlockGenerator : MonoSingleton<BlockGenerator> {
         //blockColors.Add(color4);
         //blockColors.Add(color5);
         //blockColors.Add(color6);
+
+        blockOverlay1.Add(overlay1);
+        blockOverlay1.Add(overlay2);
+        blockOverlay2.Add(overlay3);
+        blockOverlay2.Add(overlay4);
 
         //BlockGeneratorReady = true;
 
@@ -57,7 +76,27 @@ public class BlockGenerator : MonoSingleton<BlockGenerator> {
         int blockColorIndex = Random.Range(0, blockColors.Count);
         BlockSprite.color = blockColors[blockColorIndex];
 
+        //BlockOverlay = newGameObject.GetComponentInChildren<SpriteRenderer>();
+        BlockOverlay = newGameObject.transform.Find("Overlay2D").GetComponent<SpriteRenderer>();
         newGameObject.transform.position = initialPosition;
+
+        if (blockTypeIndex == 0)
+        {
+            int blockOverlayIndex = Random.Range(0, blockOverlay1.Count);
+            BlockOverlay.sprite = blockOverlay1[blockOverlayIndex];
+            //print("block type " +blockTypeIndex);
+        } else if (blockTypeIndex == 1 || blockTypeIndex == 2)
+        {
+            int blockOverlayIndex = Random.Range(0, blockOverlay2.Count);
+            BlockOverlay.sprite = blockOverlay2[blockOverlayIndex];
+            //print("block type " + blockTypeIndex);
+        }
+        //else if (blockTypeIndex == 2)
+        //{
+        //    int blockOverlayIndex = Random.Range(0, blockOverlay3.Count);
+        //    BlockOverlay.sprite = blockOverlay3[blockOverlayIndex];
+        //    //print("block type " + blockTypeIndex);
+        //}
 
         //Assign Block to Players
         //if (!isPlayerOneBlock)
