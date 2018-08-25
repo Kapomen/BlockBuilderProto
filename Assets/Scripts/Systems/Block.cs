@@ -8,7 +8,7 @@ public class Block : DraggableObject {
     RaycastHit hit;
     Vector3 initial;
 
-    private int AssignedBlockIndexPos;
+    //private int AssignedBlockIndexPos;
 
     //NOTE: 2 Player currently disabled! BlockGenerator needs to be able to set IsPlayerOneBlock of newBlock
 
@@ -19,7 +19,8 @@ public class Block : DraggableObject {
     private void Start() {
         IsPlaced = false;
         isPlayerOneBlock = assignPlayerOne;
-        print("Block- Player 1 " + isPlayerOneBlock);
+
+        //print("Block- Player 1 " + isPlayerOneBlock);
         //audioSource = this.GetComponent<AudioSource>();
     } //end Awake
     //private void Start(){}
@@ -92,10 +93,6 @@ public class Block : DraggableObject {
                     this.GetComponent<Rigidbody>().isKinematic = false;
                     this.GetComponent<Rigidbody>().useGravity = true;
 
-                    //this.GetComponentInChildren<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-                    //this.transform.position = new Vector2(hit.point.x, hit.point.y);
-                    //this.GetComponent<Rigidbody2D>().bodyType;   //set bodytype to dyamic to apply forces
-
                     //Makes Blocks placed in the PlayArea non-draggable
                     IsPlaced = true;
 
@@ -103,16 +100,12 @@ public class Block : DraggableObject {
                     GameManager.Instance.SetBlockIntoPlay(this.gameObject);
 
                     //Store the index for the block within itself for reference
-                    AssignedBlockIndexPos = GameManager.Instance.CurrentBlockIndexPos;
+                    //AssignedBlockIndexPos = GameManager.Instance.CurrentBlockIndexPos;
 
                     //Changes to the next Players turn after Block is placed.
                     GameManager.Instance.NextTurn();
 
                     BlockGenerator.Instance.ReplaceBlock(initial, isPlayerOneBlock);
-                        //BlockGenerator.Instance.ReplaceBlock(initial);
-
-                        //print("placed " +IsPlaced);
-                        //print("Assigned Block Index: " + AssignedBlockIndexPos);
                     }
                 else
                     this.transform.position = initial;
@@ -124,11 +117,8 @@ public class Block : DraggableObject {
     } //end EndDrag
 
     //    void OnCollisionEnter (Collision col) {
-    //    if(this.IsDragging = true && col.gameObject.tag == "Draggable")
+    //    if(col.)
     //    {
-    //        //check other for isPlaced. If true, ignore.
-    //        //Destroy(col.gameObject);
-    //        Physics.IgnoreCollision(this.GetComponent<Collider>(), col.gameObject.GetComponent<Collider>());
     //    }
     //} //end OnCollisionEnter
 

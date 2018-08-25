@@ -21,7 +21,7 @@ public class BGM : MonoBehaviour
     void Update()
     {
         Scene sceneloadf = SceneManager.GetActiveScene();
-        Debug.Log("scenenumber " + sceneloadf.buildIndex);
+        //Debug.Log("scenenumber " + sceneloadf.buildIndex);
         if (sceneloadf.buildIndex == 1 || sceneloadf.buildIndex == 2 || sceneloadf.buildIndex == 3 || sceneloadf.buildIndex == 5)
         {
             Destroy(this.gameObject);

@@ -1,5 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿//using System.Collections;
+//using System.Collections.Generic;
 using UnityEngine;
 
 public class gamepausechecking : MonoBehaviour {
@@ -7,31 +7,29 @@ public class gamepausechecking : MonoBehaviour {
 
     public GameObject pausebutton;
     public GameObject resetbutton;
-    
-
-    //public GameObject resultmenu;
 
 	// Use this for initialization
 	void Start () {
-       
-        paused = false;
-        GameObject timer = GameObject.Find("Timer");
 
-        TimerCounting timerreset = timer.GetComponent<TimerCounting>();
+        //paused = false;
+        ClearPause();
+        //GameObject timer = GameObject.Find("Timer");
+
+        //TimerCounting timerreset = timer.GetComponent<TimerCounting>();
 
         pausebutton = GameObject.Find("Pause");
         resetbutton = GameObject.Find("Reset");
-    }
-	
-	// Update is called once per frame
-	void Update () {
+    } //end Start
+
+    // Update is called once per frame
+    void Update () {
         if(paused == false)
         {
             pausebutton.SetActive(true);
             resetbutton.SetActive(true);
         }
 
-    }
+    } //end Update
 
     public void Pause()
     {
@@ -46,7 +44,11 @@ public class gamepausechecking : MonoBehaviour {
         {
             Time.timeScale = 1;
         }
-    }
+    } //end Pause
 
-   
-}
+    private void ClearPause()
+    {
+        paused = false;
+        Time.timeScale = 1;
+    } //end ClearPause
+} //end gamepausechecking class

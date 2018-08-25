@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
-using System.Collections;
+//using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class SceneTrans : MonoBehaviour
 {
 
-    public void changeToScene(string sceneToChangeTo)
+    public void ChangeToScene(string sceneToChangeTo)
     {
-        GameManager.Instance.ResetBlocks();
         SceneManager.LoadScene(sceneToChangeTo);
-    }
-}
+        GameManager.Instance.ResetBlocks();
+    } //end ChangeToScene
+} //end SceneTrans

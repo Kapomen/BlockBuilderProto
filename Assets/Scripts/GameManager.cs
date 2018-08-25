@@ -63,7 +63,6 @@ public class GameManager : MonoSingleton<GameManager> {
 
     public void NextTurn()
     {
-        //This is to end the turn if 2 player game 
         IsPlayerOne = !IsPlayerOne;
     } //end NextTurn
 

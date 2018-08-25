@@ -101,12 +101,7 @@ public class BlockGenerator : MonoSingleton<BlockGenerator> {
             //print("block type " + blockTypeIndex);
         }
 
-        
-        print("Gen- Player 1 " + isPlayerOneBlock);
-
-        
-        //assignPlayerOne = newGameObject.GetComponent<Block>().assignPlayerOne;
-
+        //print("Gen- Player 1 " + isPlayerOneBlock);
         newGameObject.GetComponent<Block>().assignPlayerOne = isPlayerOneBlock;
 
         //else if (blockTypeIndex == 2)
@@ -115,15 +110,6 @@ public class BlockGenerator : MonoSingleton<BlockGenerator> {
         //    BlockOverlay.sprite = blockOverlay3[blockOverlayIndex];
         //    //print("block type " + blockTypeIndex);
         //}
-
-        //Assign Block to Players
-        //if (!isPlayerOneBlock)
-        //{
-        //    //newGameObject.
-        //    //isPlayerOneBlock = false;
-        //    print("Player 2");
-        //}
-
     } //end ReplaceBlock
 
 } //end BlockGenerator class
