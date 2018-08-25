@@ -342,6 +342,10 @@ Prefab:
       propertyPath: m_Name
       value: Block3 - V.Rect
       objectReference: {fileID: 0}
+    - target: {fileID: 1858360499479110, guid: bdc8145520a69f6498a9bdc4178b2277, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bdc8145520a69f6498a9bdc4178b2277, type: 2}
   m_IsPrefabAsset: 0
@@ -508,6 +512,10 @@ Prefab:
     - target: {fileID: 1853456370714610, guid: 9a35e075d2c68464797d6cfee13ecb34, type: 2}
       propertyPath: m_Name
       value: Block2 - H.Rect
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853456370714610, guid: 9a35e075d2c68464797d6cfee13ecb34, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a35e075d2c68464797d6cfee13ecb34, type: 2}
@@ -1660,6 +1668,10 @@ Prefab:
     - target: {fileID: 1821716182020012, guid: c90dbcdb70fc776409b6e5259067524a, type: 2}
       propertyPath: m_Name
       value: Block1 - Square
+      objectReference: {fileID: 0}
+    - target: {fileID: 1821716182020012, guid: c90dbcdb70fc776409b6e5259067524a, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c90dbcdb70fc776409b6e5259067524a, type: 2}

@@ -30,8 +30,7 @@ public enum GameStates {
 } //end GameStates
 public delegate void OnStateChangeHandler();
 
-public class GameManager : MonoSingleton<GameManager>
-{
+public class GameManager : MonoSingleton<GameManager> {
 
     public event OnStateChangeHandler OnStateChange;
 
@@ -88,8 +87,10 @@ public class GameManager : MonoSingleton<GameManager>
         //    //Destroy(BlocksInPlayIndex[i]);
         //    print(BlocksInPlayIndex[i]);
         //}
-        BlocksInPlayIndex.Clear();
         //BlocksInPlayIndex.RemoveAll(delegate (GameObject o) { return o == null; });
+
+        BlocksInPlayIndex.Clear();
+        CurrentBlockIndexPos = BlocksInPlayIndex.Count;
         BlocksInPlay = BlocksInPlayIndex.Count;
     } //end ResetBlocks
 } //end GameManager class

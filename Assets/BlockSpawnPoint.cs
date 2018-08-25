@@ -1,5 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿//using System.Collections;
+//using System.Collections.Generic;
 using UnityEngine;
 
 public class BlockSpawnPoint : MonoBehaviour {
@@ -7,18 +7,12 @@ public class BlockSpawnPoint : MonoBehaviour {
     Vector3 initial;
     //private readonly List<GameObject> SpawnPoints = new List<GameObject>();
 
-    [SerializeField] bool isPlayerOneBlock = true; //set and pass to Block.cs
+    public bool assignPlayerOne;
+    //public bool isPlayerOneBlock; //set and pass to Block.cs
 
     // Use this for initialization
     void Start () {
-        //SpawnPoints.Add(this.gameObject);
-
-        //if (BlockGenerator.Instance.BlockGeneratorReady == true)
-        //{
-        //    SpawnFirstBlock();
-        //    //print(BlockGenerator.Instance.BlockGeneratorReady);
-        //}
-        //BlockGenerator.Instance.ReplaceBlock(initial, isPlayerOneBlock);
+        SpawnFirstBlock();
     } //end OnEnable
 	
 	// Update is called once per frame
@@ -27,7 +21,7 @@ public class BlockSpawnPoint : MonoBehaviour {
 
     public void SpawnFirstBlock() {
         initial = this.transform.position;
-        BlockGenerator.Instance.ReplaceBlock(initial, isPlayerOneBlock);
+        BlockGenerator.Instance.ReplaceBlock(initial, assignPlayerOne);
     } //end SpawnFirstBlock
 
 } //end BlockSpawnPoint class

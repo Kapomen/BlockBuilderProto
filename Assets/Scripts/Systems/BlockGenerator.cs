@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class BlockGenerator : MonoSingleton<BlockGenerator> {
 
+    public GameObject playerOneBlocks;
+    public GameObject playerTwoBlocks;
+    public Vector3 playerOnePosition;
+    public Vector3 playerTwoPosition;
+
+    //private bool assignPlayerOne;
+
     private readonly List<GameObject> blockTypes = new List<GameObject>();
     public GameObject block1;
     public GameObject block2;
@@ -35,9 +42,6 @@ public class BlockGenerator : MonoSingleton<BlockGenerator> {
     //public Sprite overlay7;
     //public Sprite overlay8;
 
-
-    //[SerializeField] public bool BlockGeneratorReady = false;
-
     // Use this for initialization
     protected override void Awake () {
         //Load Generator
@@ -60,8 +64,10 @@ public class BlockGenerator : MonoSingleton<BlockGenerator> {
         blockOverlay2.Add(overlay5);
         blockOverlay2.Add(overlay6);
 
-        //BlockGeneratorReady = true;
-
+        GameObject newPlayer1Queue = Instantiate(playerOneBlocks);
+        GameObject newPlayer2Queue = Instantiate(playerTwoBlocks);
+        newPlayer1Queue.transform.position = playerOnePosition;
+        newPlayer2Queue.transform.position = playerTwoPosition;
         //Setting up probability: 
         ////Use a public or random set int to change the number of times a block type or color is added to their lists.
     } //end Start
@@ -80,7 +86,6 @@ public class BlockGenerator : MonoSingleton<BlockGenerator> {
         int blockColorIndex = Random.Range(0, blockColors.Count);
         BlockSprite.color = blockColors[blockColorIndex];
 
-        //BlockOverlay = newGameObject.GetComponentInChildren<SpriteRenderer>();
         BlockOverlay = newGameObject.transform.Find("Overlay2D").GetComponent<SpriteRenderer>();
         newGameObject.transform.position = initialPosition;
 
@@ -95,6 +100,15 @@ public class BlockGenerator : MonoSingleton<BlockGenerator> {
             BlockOverlay.sprite = blockOverlay2[blockOverlayIndex];
             //print("block type " + blockTypeIndex);
         }
+
+        
+        print("Gen- Player 1 " + isPlayerOneBlock);
+
+        
+        //assignPlayerOne = newGameObject.GetComponent<Block>().assignPlayerOne;
+
+        newGameObject.GetComponent<Block>().assignPlayerOne = isPlayerOneBlock;
+
         //else if (blockTypeIndex == 2)
         //{
         //    int blockOverlayIndex = Random.Range(0, blockOverlay3.Count);

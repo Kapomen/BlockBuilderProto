@@ -13,11 +13,13 @@ public class Block : DraggableObject {
     //NOTE: 2 Player currently disabled! BlockGenerator needs to be able to set IsPlayerOneBlock of newBlock
 
     //AudioSource audioSource;
-    [SerializeField] bool isPlayerOneBlock = true; //passed from spawn point
+    public bool assignPlayerOne;  //passed from spawn point
+    private bool isPlayerOneBlock;
 
-    private void Awake() {
+    private void Start() {
         IsPlaced = false;
-        IsDragging = false;
+        isPlayerOneBlock = assignPlayerOne;
+        print("Block- Player 1 " + isPlayerOneBlock);
         //audioSource = this.GetComponent<AudioSource>();
     } //end Awake
     //private void Start(){}
@@ -30,47 +32,61 @@ public class Block : DraggableObject {
 
     public override void BeginDrag(Vector3 pointerPosition) {
         if (!IsPlaced) {
-            //for single player remove this IF (not it's content)
-            //if ((isPlayerOneBlock && GameManager.Instance.isPlayerOne)|| (!isPlayerOneBlock && !GameManager.Instance.isPlayerOne)) {
-            //    base.BeginDrag(pointerPosition);
-            //    initial = this.transform.position;
-            //}
 
-            IsDragging = true;
-            base.BeginDrag(pointerPosition);
-            initial = this.transform.position;
+            //for 2 player
+            if ((isPlayerOneBlock && GameManager.Instance.IsPlayerOne) || (!isPlayerOneBlock && !GameManager.Instance.IsPlayerOne))
+            {
+                this.gameObject.layer = 8; //DraggedBlock Layer
+                base.BeginDrag(pointerPosition);
+                initial = this.transform.position;
+            }
+
+            //for 1 player
+            //this.gameObject.layer = 8; //DraggedBlock Layer
+            //base.BeginDrag(pointerPosition);
+            //initial = this.transform.position;
             
         } 
     } //end BeginDrag
 
     public override void OnDrag(Vector3 pointerPosition) {
         if (!IsPlaced) {
-            //for a single player remove this if (not it's content though)
-            //if ((isPlayerOneBlock && GameManager.Instance.isPlayerOne) || (!isPlayerOneBlock && !GameManager.Instance.isPlayerOne))
-            //{
-            //    base.OnDrag(pointerPosition);
-            //}
-
+            //for 2 player
+            if ((isPlayerOneBlock && GameManager.Instance.IsPlayerOne) || (!isPlayerOneBlock && !GameManager.Instance.IsPlayerOne))
+            {
+                if (this.gameObject.layer == 0)
+                {
+                    this.gameObject.layer = 8;
+                }
                 base.OnDrag(pointerPosition);
+            }
+
+            //for 1 player
+            //if (this.gameObject.layer == 0)
+            //{
+            //    this.gameObject.layer = 8;
+            //}
+            //    base.OnDrag(pointerPosition);
             
         }    
     } //end OnDrag
 
     public override void EndDrag()
     {
-        //checks if the ray hits something at 1 distance. Used to define context of space behind dragged block.
-        //if ((isPlayerOneBlock && GameManager.Instance.isPlayerOne) || (!isPlayerOneBlock && !GameManager.Instance.isPlayerOne)) {
+        //checks if the ray hits something at 1 distance. Used to define context of space behind dragged block
+        if ((isPlayerOneBlock && GameManager.Instance.IsPlayerOne) || (!isPlayerOneBlock && !GameManager.Instance.IsPlayerOne)) {
 
+        this.gameObject.layer = 0;
         base.EndDrag();
 
         if (!IsPlaced)
-        {
-            IsDragging = false;
-            if (Physics.Raycast(ray, out hit, 1))
             {
+            if (Physics.Raycast(ray, out hit, 1))
+                {
                 //checks hit object's tag
                 if (hit.transform.tag == "PlayArea")
-                {
+                    {
+                    this.gameObject.layer = 9;  //PlacedBlocks Layer
                     this.transform.position = new Vector3(hit.point.x, hit.point.y, this.transform.position.z);
 
                     this.GetComponent<Rigidbody>().isKinematic = false;
@@ -90,21 +106,21 @@ public class Block : DraggableObject {
                     AssignedBlockIndexPos = GameManager.Instance.CurrentBlockIndexPos;
 
                     //Changes to the next Players turn after Block is placed.
-                    //GameManager.Instance.NextTurn();
+                    GameManager.Instance.NextTurn();
 
                     BlockGenerator.Instance.ReplaceBlock(initial, isPlayerOneBlock);
-                    //BlockGenerator.Instance.ReplaceBlock(initial);
+                        //BlockGenerator.Instance.ReplaceBlock(initial);
 
-
-                    print("Assigned Block Index: " + AssignedBlockIndexPos);
-                }
+                        //print("placed " +IsPlaced);
+                        //print("Assigned Block Index: " + AssignedBlockIndexPos);
+                    }
                 else
                     this.transform.position = initial;
-            }
+                }
             else
                 this.transform.position = initial;
-        } //end if (!IsPlaced)
-        //}
+            } //end if (!IsPlaced)
+        }
     } //end EndDrag
 
     //    void OnCollisionEnter (Collision col) {

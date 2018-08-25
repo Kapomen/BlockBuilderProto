@@ -9,7 +9,6 @@ public class DraggableObject : MonoBehaviour {
     float  positionX;
     float  positionY;
     public bool IsPlaced { get; set; }
-    public bool IsDragging { get; set; }
 
     // Update is called once per frame
     //void Update () {}
