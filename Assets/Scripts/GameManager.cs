@@ -76,6 +76,20 @@ public class GameManager : MonoSingleton<GameManager>
 
         //print(BlocksInPlayIndex.Count);
         //print("Placed BlockIndex: " + CurrentBlockIndex);
-        print("Blocks In Play: " + BlocksInPlay);
-    } //end UpdatePlayArea
+        //print("Blocks In Play: " + BlocksInPlay);
+    } //end SetBlockIntoPlay
+
+    public void ResetBlocks()
+    {
+        //for (int i = 0; i <= BlocksInPlayIndex.Count; i++)
+        //{
+        //    //BlocksInPlayIndex[i].gameObject;
+        //    //GameObject destroyBlock = BlocksInPlayIndex[i];
+        //    //Destroy(BlocksInPlayIndex[i]);
+        //    print(BlocksInPlayIndex[i]);
+        //}
+        BlocksInPlayIndex.Clear();
+        //BlocksInPlayIndex.RemoveAll(delegate (GameObject o) { return o == null; });
+        BlocksInPlay = BlocksInPlayIndex.Count;
+    } //end ResetBlocks
 } //end GameManager class

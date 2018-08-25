@@ -24,14 +24,16 @@ public class BlockGenerator : MonoSingleton<BlockGenerator> {
     private readonly List<Sprite> blockOverlay1 = new List<Sprite>(); //squares
     public Sprite overlay1;
     public Sprite overlay2;
+    public Sprite overlay3;
 
     private readonly List<Sprite> blockOverlay2 = new List<Sprite>(); //rectangles
-    public Sprite overlay3;
     public Sprite overlay4;
+    public Sprite overlay5;
+    public Sprite overlay6;
 
     //private readonly List<Sprite> blockOverlay3 = new List<Sprite>();
-    //public Sprite overlay5;
-    //public Sprite overlay6;
+    //public Sprite overlay7;
+    //public Sprite overlay8;
 
 
     //[SerializeField] public bool BlockGeneratorReady = false;
@@ -53,8 +55,10 @@ public class BlockGenerator : MonoSingleton<BlockGenerator> {
 
         blockOverlay1.Add(overlay1);
         blockOverlay1.Add(overlay2);
-        blockOverlay2.Add(overlay3);
+        blockOverlay1.Add(overlay3);
         blockOverlay2.Add(overlay4);
+        blockOverlay2.Add(overlay5);
+        blockOverlay2.Add(overlay6);
 
         //BlockGeneratorReady = true;
 
