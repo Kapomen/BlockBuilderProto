@@ -116,11 +116,15 @@ public class Block : DraggableObject {
         }
     } //end EndDrag
 
-    //    void OnCollisionEnter (Collision col) {
-    //    if(col.)
-    //    {
-    //    }
-    //} //end OnCollisionEnter
+    void OnCollisionEnter(Collision col)
+    {
+        if (col.gameObject.name =="Pit")
+        {
+            GameManager.Instance.RemoveBlockFromPlay(this.gameObject);
+            Destroy(this.gameObject);
+            //print("pit");
+        }
+    } //end OnCollisionEnter
 
     //public override void TapObject()
     //{

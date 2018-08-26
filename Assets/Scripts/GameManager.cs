@@ -77,6 +77,13 @@ public class GameManager : MonoSingleton<GameManager> {
         //print("Blocks In Play: " + BlocksInPlay);
     } //end SetBlockIntoPlay
 
+    public void RemoveBlockFromPlay(GameObject block)
+    {
+        BlocksInPlayIndex.Remove(block);
+        BlocksInPlay = BlocksInPlayIndex.Count;
+        //CurrentBlockIndexPos = BlocksInPlayIndex.Count;
+    } //end RemoveBlockFromPlay
+
     public void ResetBlocks()
     {
         //for (int i = 0; i <= BlocksInPlayIndex.Count; i++)
