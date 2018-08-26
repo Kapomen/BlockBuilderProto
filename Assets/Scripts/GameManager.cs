@@ -46,7 +46,7 @@ public class GameManager : MonoSingleton<GameManager> {
     private void Start()
     {
         IsPlayerOne = true;
-        print("StartBlocksInPlay: " + BlocksInPlayIndex.Count);
+        //print("StartBlocksInPlay: " + BlocksInPlayIndex.Count);
     } //end Start
 
     /// <summary>

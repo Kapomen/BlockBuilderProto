@@ -9,8 +9,10 @@ public class Block : DraggableObject {
     Vector3 initial;
 
     //private int AssignedBlockIndexPos;
+    //public bool IsColorBlended;
 
-    //NOTE: 2 Player currently disabled! BlockGenerator needs to be able to set IsPlayerOneBlock of newBlock
+    SpriteRenderer BlockSprite;
+    SpriteRenderer OtherBlockSprite;
 
     //AudioSource audioSource;
     public bool assignPlayerOne;  //passed from spawn point
@@ -19,8 +21,9 @@ public class Block : DraggableObject {
     private void Start() {
         IsPlaced = false;
         isPlayerOneBlock = assignPlayerOne;
+        BlockSprite = this.GetComponent<SpriteRenderer>();
+        //IsColorBlended = false;
 
-        //print("Block- Player 1 " + isPlayerOneBlock);
         //audioSource = this.GetComponent<AudioSource>();
     } //end Awake
     //private void Start(){}
@@ -87,25 +90,25 @@ public class Block : DraggableObject {
                 //checks hit object's tag
                 if (hit.transform.tag == "PlayArea")
                     {
-                    this.gameObject.layer = 9;  //PlacedBlocks Layer
-                    this.transform.position = new Vector3(hit.point.x, hit.point.y, this.transform.position.z);
+                        this.transform.position = new Vector3(hit.point.x, hit.point.y, this.transform.position.z);
+                        this.gameObject.layer = 9;  //PlacedBlocks Layer
 
-                    this.GetComponent<Rigidbody>().isKinematic = false;
-                    this.GetComponent<Rigidbody>().useGravity = true;
+                        this.GetComponent<Rigidbody>().isKinematic = false;
+                        this.GetComponent<Rigidbody>().useGravity = true;
 
-                    //Makes Blocks placed in the PlayArea non-draggable
-                    IsPlaced = true;
+                        //Makes Blocks placed in the PlayArea non-draggable
+                        IsPlaced = true;
 
-                    //Collect Block GameObject to list BlocksInPlayIndex.
-                    GameManager.Instance.SetBlockIntoPlay(this.gameObject);
+                        //Collect Block GameObject to list BlocksInPlayIndex.
+                        GameManager.Instance.SetBlockIntoPlay(this.gameObject);
 
-                    //Store the index for the block within itself for reference
-                    //AssignedBlockIndexPos = GameManager.Instance.CurrentBlockIndexPos;
+                        //Store the index for the block within itself for reference
+                        //AssignedBlockIndexPos = GameManager.Instance.CurrentBlockIndexPos;
 
-                    //Changes to the next Players turn after Block is placed.
-                    GameManager.Instance.NextTurn();
+                        BlockGenerator.Instance.ReplaceBlock(initial, isPlayerOneBlock);
 
-                    BlockGenerator.Instance.ReplaceBlock(initial, isPlayerOneBlock);
+                        //Changes to the next Players turn after Block is placed.
+                        GameManager.Instance.NextTurn();
                     }
                 else
                     this.transform.position = initial;
@@ -118,12 +121,49 @@ public class Block : DraggableObject {
 
     void OnCollisionEnter(Collision col)
     {
-        if (col.gameObject.name =="Pit")
+        if (col.gameObject.name == "Pit")
         {
             GameManager.Instance.RemoveBlockFromPlay(this.gameObject);
             Destroy(this.gameObject);
             //print("pit");
+        } else if (col.gameObject.tag == "Draggable") {
+            OtherBlockSprite = col.gameObject.GetComponent<SpriteRenderer>();
+            if (OtherBlockSprite.color == BlockSprite.color)
+            {
+                GameManager.Instance.RemoveBlockFromPlay(col.gameObject);
+                Destroy(col.gameObject);
+
+                GameManager.Instance.RemoveBlockFromPlay(this.gameObject);
+                Destroy(this.gameObject);
+            }
+            //else if (this.IsColorBlended == false && col.gameObject.GetComponent<Block>().IsColorBlended == false)
+            //{
+            //    ////float blendValue = 0.5f;
+            //    ////Color blendedColor = Color.Lerp(BlockSprite.color, OtherBlockSprite.color, blendValue);
+            //    //Color blendedColor = BlockSprite.color + OtherBlockSprite.color;
+
+            //    //OtherBlockSprite.color = blendedColor;
+            //    ////BlockSprite.color = BlockSprite.color;
+
+            //    //col.gameObject.GetComponent<Block>().IsColorBlended = true;
+            //    ////this.IsColorBlended = true;
+            //}
+            //else if (this.IsColorBlended == true && col.gameObject.GetComponent<Block>().IsColorBlended == false)
+            //{
+            //    ////float blendValue = 0.5f;
+            //    ////Color blendedColor = Color.Lerp(BlockSprite.color, OtherBlockSprite.color, blendValue);
+            //    //Color blendedColor = OtherBlockSprite.color + BlockSprite.color;
+
+            //    ////OtherBlockSprite.color = blendedColor;
+            //    //BlockSprite.color = blendedColor;
+
+            //    ////col.gameObject.GetComponent<Block>().IsColorBlended = true;
+            //    ////this.IsColorBlended = false;
+            //    //print(this.IsColorBlended + " " + col.gameObject.GetComponent<Block>().IsColorBlended);
+            //    //return;
+            //}
         }
+        //else if (col.gameObject.name == "Block1 - Square"){}
     } //end OnCollisionEnter
 
     //public override void TapObject()

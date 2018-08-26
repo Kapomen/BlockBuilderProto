@@ -249,7 +249,7 @@ GameObject:
   - component: {fileID: 75935471}
   - component: {fileID: 75935470}
   - component: {fileID: 75935469}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -681,7 +681,7 @@ GameObject:
   m_Component:
   - component: {fileID: 893125179}
   - component: {fileID: 893125180}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: New Sprite (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -852,7 +852,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1030455580}
   - component: {fileID: 1030455581}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: New Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1177,35 +1177,35 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 968952136}
     m_Modifications:
-    - target: {fileID: 4713285101254864, guid: bd549b78033ec354d93973609aeb2f9e, type: 2}
+    - target: {fileID: 4827878701680890, guid: bd549b78033ec354d93973609aeb2f9e, type: 2}
       propertyPath: m_LocalPosition.x
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 4713285101254864, guid: bd549b78033ec354d93973609aeb2f9e, type: 2}
+    - target: {fileID: 4827878701680890, guid: bd549b78033ec354d93973609aeb2f9e, type: 2}
       propertyPath: m_LocalPosition.y
       value: -4
       objectReference: {fileID: 0}
-    - target: {fileID: 4713285101254864, guid: bd549b78033ec354d93973609aeb2f9e, type: 2}
+    - target: {fileID: 4827878701680890, guid: bd549b78033ec354d93973609aeb2f9e, type: 2}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4713285101254864, guid: bd549b78033ec354d93973609aeb2f9e, type: 2}
+    - target: {fileID: 4827878701680890, guid: bd549b78033ec354d93973609aeb2f9e, type: 2}
       propertyPath: m_LocalRotation.x
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 4713285101254864, guid: bd549b78033ec354d93973609aeb2f9e, type: 2}
+    - target: {fileID: 4827878701680890, guid: bd549b78033ec354d93973609aeb2f9e, type: 2}
       propertyPath: m_LocalRotation.y
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 4713285101254864, guid: bd549b78033ec354d93973609aeb2f9e, type: 2}
+    - target: {fileID: 4827878701680890, guid: bd549b78033ec354d93973609aeb2f9e, type: 2}
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 4713285101254864, guid: bd549b78033ec354d93973609aeb2f9e, type: 2}
+    - target: {fileID: 4827878701680890, guid: bd549b78033ec354d93973609aeb2f9e, type: 2}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4713285101254864, guid: bd549b78033ec354d93973609aeb2f9e, type: 2}
+    - target: {fileID: 4827878701680890, guid: bd549b78033ec354d93973609aeb2f9e, type: 2}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
@@ -1214,7 +1214,7 @@ Prefab:
   m_IsPrefabAsset: 0
 --- !u!4 &1819586852 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 4713285101254864, guid: bd549b78033ec354d93973609aeb2f9e,
+  m_CorrespondingSourceObject: {fileID: 4827878701680890, guid: bd549b78033ec354d93973609aeb2f9e,
     type: 2}
   m_PrefabInternal: {fileID: 1819586851}
 --- !u!1 &1858255717
@@ -1250,7 +1250,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -1347,8 +1347,8 @@ GameObject:
   - component: {fileID: 2089971834}
   - component: {fileID: 2089971833}
   - component: {fileID: 2089971832}
-  m_Layer: 0
-  m_Name: Base (1)
+  m_Layer: 10
+  m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
